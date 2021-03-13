@@ -1,5 +1,9 @@
 # ノートアプリ
 
+## Hosted on Netlify
+
+https://eager-booth-b70cbe.netlify.app/
+
 ## 学習項目
 
 1. Vue インスタンス
