@@ -4,6 +4,44 @@
 
 https://eager-booth-b70cbe.netlify.app/
 
+## プロジェクトの作成方法
+
+1. `vue create {プロジェクト名}`
+2. Manually select features を選択
+3. Babel, Router, Vuex, Linter / Formatter を選択
+4. Use history mode for router? -> Y
+5. ESLint + Prettier を選択
+6. Lint on save を選択
+7. In dedicated config files を選択
+8. Save this as a preset for future projects? -> どちらでも
+
+## 自動フォーマット設定
+
+ソースコードを自動的にフォーマットするための設定を紹介します。
+
+1. .vscode フォルダを作成
+2. settings.json ファイルを以下の内容で作成
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  }
+}
+```
+
+3. .prettierrc ファイルを以下の内容で作成
+
+```json
+{
+  "semi": true,
+  "singleQuote": false
+}
+```
+
 ## 学習項目
 
 1. Vue インスタンス
