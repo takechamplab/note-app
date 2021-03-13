@@ -9,10 +9,6 @@
 5. 一覧画面でノートをクリックすると詳細を見たい
 6. 詳細画面では更新と削除をしたい
 
-## Hosted on Netlify
-
-https://eager-booth-b70cbe.netlify.app/
-
 ## プロジェクトの作成方法
 
 1. `vue create {プロジェクト名}`
@@ -77,3 +73,9 @@ https://eager-booth-b70cbe.netlify.app/
 6. CSS
    1. flex
    2. margin
+
+## 回答例
+
+Hosted on Netlify
+
+https://eager-booth-b70cbe.netlify.app/
