@@ -7,11 +7,11 @@
       v-model="title"
     />
     <textarea
-      class="text"
+      class="body"
       cols="30"
       rows="10"
       placeholder="本文を入力してください"
-      v-model="text"
+      v-model="body"
     ></textarea>
     <button class="save-button" @click="save">保存</button>
   </div>
@@ -23,20 +23,20 @@ export default {
   data() {
     return {
       title: "",
-      text: ""
+      body: ""
     };
   },
   methods: {
     save() {
       const payload = {
         title: this.title,
-        text: this.text
+        body: this.body
       };
       this.$store.commit("addNote", payload);
 
       // リセット
       this.title = "";
-      this.text = "";
+      this.body = "";
     }
   }
 };
@@ -51,7 +51,7 @@ export default {
 .title {
   margin-bottom: 10px;
 }
-.text {
+.body {
   margin-bottom: 10px;
 }
 </style>

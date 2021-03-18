@@ -12,7 +12,7 @@ export default new Vuex.Store({
       const newNote = {
         id: state.notes.length + 1,
         title: payload.title,
-        text: payload.text
+        body: payload.body
       };
       state.notes.push(newNote);
     },

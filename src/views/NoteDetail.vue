@@ -7,11 +7,11 @@
       v-model="title"
     />
     <textarea
-      class="text"
+      class="body"
       cols="30"
       rows="10"
       placeholder="本文を入力してください"
-      v-model="text"
+      v-model="body"
     ></textarea>
     <div class="buttons">
       <button @click="deleteNote">削除</button>
@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       title: "",
-      text: ""
+      body: ""
     };
   },
   computed: {
@@ -38,16 +38,18 @@ export default {
   },
   created() {
     this.title = this.note ? this.note.title : "";
-    this.text = this.note ? this.note.text : "";
+    this.body = this.note ? this.note.body : "";
   },
   methods: {
     saveNote() {
       const newNote = {
         id: this.note.id,
         title: this.title,
-        text: this.text
+        body: this.body
       };
       this.$store.commit("updateNote", newNote);
+      // 一覧画面に戻る
+      this.$router.push("/notes");
     },
     deleteNote() {
       this.$store.commit("deleteNote", this.note.id);
@@ -67,7 +69,7 @@ export default {
 .title {
   margin-bottom: 10px;
 }
-.text {
+.body {
   margin-bottom: 10px;
 }
 .buttons > button {
