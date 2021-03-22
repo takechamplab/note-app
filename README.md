@@ -9,6 +9,12 @@
 5. 一覧画面でノートをクリックすると詳細を見たい
 6. 詳細画面では更新と削除をしたい
 
+## Visual Studio Code の拡張機能
+
+1. ES Lint
+2. Prettier
+3. Vetur
+
 ## プロジェクトの作成方法
 
 1. `vue create {プロジェクト名}`
