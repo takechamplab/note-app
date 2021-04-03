@@ -9,6 +9,7 @@ export default new Vuex.Store({
   },
   mutations: {
     addNote(state, payload) {
+      // id を作成してから追加する
       const newNote = {
         id: state.notes.length + 1,
         title: payload.title,
@@ -16,8 +17,14 @@ export default new Vuex.Store({
       };
       state.notes.push(newNote);
     },
-    updateNote(state, note) {
-      state.notes = state.notes.map(n => (n.id === note.id ? note : n));
+    updateNote(state, newNote) {
+      // 新しいノートと id が同じ state.note の内容を更新
+      for (const note of state.notes) {
+        if (note.id === newNote.id) {
+          note.title = newNote.title;
+          note.body = newNote.body;
+        }
+      }
     },
     deleteNote(state, noteId) {
       state.notes = state.notes.filter(n => n.id !== noteId);

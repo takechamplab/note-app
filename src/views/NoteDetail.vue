@@ -15,7 +15,7 @@
     ></textarea>
     <div class="buttons">
       <button @click="deleteNote">削除</button>
-      <button @click="saveNote">保存</button>
+      <button @click="updateNote">保存</button>
     </div>
   </div>
 </template>
@@ -30,21 +30,25 @@ export default {
     };
   },
   created() {
+    // store から対象のノートを取得
     const note = this.$store.state.notes.find(
+      // this.$route.params.id は文字列なので parseInt で number 型に変換
       n => n.id === parseInt(this.$route.params.id)
     );
     if (note) {
+      // 見つかったら値を data に移して編集できるようにしておく
       this.title = note.title;
       this.body = note.body;
     } else {
-      this.title = "";
-      this.body = "";
+      // 見つからなかった場合は一覧画面に戻しておく
+      this.$router.push("/notes");
     }
   },
   methods: {
-    saveNote() {
+    updateNote() {
+      // this.$route.params.id は文字列なので parseInt で number 型に変換
       const newNote = {
-        id: this.$route.params.id,
+        id: parseInt(this.$route.params.id),
         title: this.title,
         body: this.body
       };
@@ -53,6 +57,7 @@ export default {
       this.$router.push("/notes");
     },
     deleteNote() {
+      // this.$route.params.id は文字列なので parseInt で number 型に変換
       this.$store.commit("deleteNote", parseInt(this.$route.params.id));
       // 一覧画面に戻る
       this.$router.push("/notes");

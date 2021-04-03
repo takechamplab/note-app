@@ -19,6 +19,7 @@
 export default {
   name: "Notes",
   computed: {
+    // store にある値をコンポーネントで使うための典型的な書き方
     notes() {
       return this.$store.state.notes;
     }
