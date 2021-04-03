@@ -44,7 +44,7 @@ export default {
   methods: {
     saveNote() {
       const newNote = {
-        id: this.note.id,
+        id: this.$route.params.id,
         title: this.title,
         body: this.body
       };
@@ -53,7 +53,7 @@ export default {
       this.$router.push("/notes");
     },
     deleteNote() {
-      this.$store.commit("deleteNote", this.note.id);
+      this.$store.commit("deleteNote", parseInt(this.$route.params.id));
       // 一覧画面に戻る
       this.$router.push("/notes");
     }

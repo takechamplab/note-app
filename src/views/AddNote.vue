@@ -34,9 +34,8 @@ export default {
       };
       this.$store.commit("addNote", payload);
 
-      // リセット
-      this.title = "";
-      this.body = "";
+      // 一覧画面に戻る
+      this.$router.push("/notes");
     }
   }
 };
