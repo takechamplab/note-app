@@ -29,16 +29,17 @@ export default {
       body: ""
     };
   },
-  computed: {
-    note() {
-      return this.$store.state.notes.find(
-        n => n.id === parseInt(this.$route.params.id)
-      );
-    }
-  },
   created() {
-    this.title = this.note ? this.note.title : "";
-    this.body = this.note ? this.note.body : "";
+    const note = this.$store.state.notes.find(
+      n => n.id === parseInt(this.$route.params.id)
+    );
+    if (note) {
+      this.title = note.title;
+      this.body = note.body;
+    } else {
+      this.title = "";
+      this.body = "";
+    }
   },
   methods: {
     saveNote() {
