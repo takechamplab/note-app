@@ -16,13 +16,20 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Notes",
-  computed: {
-    // store にある値をコンポーネントで使うための典型的な書き方
-    notes() {
-      return this.$store.state.notes;
-    }
+  data() {
+    return {
+      notes: []
+    };
+  },
+  async mounted() {
+    const res = await axios.get(
+      "https://safe-meadow-71735.herokuapp.com/api/notes"
+    );
+    this.notes = res.data;
   }
 };
 </script>

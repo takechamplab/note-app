@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "AddNote",
   data() {
@@ -27,12 +29,15 @@ export default {
     };
   },
   methods: {
-    save() {
-      const payload = {
+    async save() {
+      const params = {
         title: this.title,
         body: this.body
       };
-      this.$store.commit("addNote", payload);
+      await axios.post(
+        "https://safe-meadow-71735.herokuapp.com/api/notes",
+        params
+      );
 
       // 一覧画面に戻る
       this.$router.push("/notes");
